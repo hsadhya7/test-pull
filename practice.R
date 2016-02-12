@@ -25,9 +25,7 @@ ggplot(data = fb_data, aes(x = dob_day)) +
         ylab= 'Number of users for age on X axis') +
         scale_x_discrete(breaks= seq(0,110,5))
   
-  
   str(fb_data$age)
-  
   
 b1<-  qplot(x = friend_count, data = fb_data, binwidth=50,
         color = I('white'),fill = I('#7D3C98'),
@@ -35,14 +33,10 @@ b1<-  qplot(x = friend_count, data = fb_data, binwidth=50,
           ylab='count') +
           scale_x_continuous(breaks = seq(0,1500,100))
   
-  
-
-
 b2<-  qplot(x = log10(fb_data$friend_count + 1), data = fb_data,
             color = I('white'),fill = I('#C0392B'),
             xlab=' Log 10 transformed Friend count of the user',
             ylab='Value') 
-
 
 b3<-  qplot(x = sqrt(fb_data$friend_count), data = fb_data,
             color = I('white'),fill = I('#2E86C1'),
@@ -64,12 +58,10 @@ by(fb_data$www_likes, fb_data$gender, sum)
 
 qplot(x=gender, y= friend_count, data= subset(fb_data,!is.na(gender)), geom='boxplot')
 
-
 library(ggplot2)
 data(diamonds)
 str(diamonds)
 str(diamonds$color)
-
 
 ggplot(data=diamonds, aes(x=diamonds$price),color = I('white'),fill = I('#2E86C1')) +
   geom_histogram(binwidth = 1) + xlim(0,10000) + scale_x_continuous(breaks = seq(0,10000,500))
@@ -88,7 +80,6 @@ qplot(x=color, y = price/carat, data= diamonds, geom= 'boxplot', color= color)+
   coord_cartesian(ylim=c(0,7500))
 
 by(diamonds$price,diamonds$color,summary)
-
 
 qplot(x=carat, data=diamonds, geom= 'freqpoly', binwidth=0.01) + scale_x_continuous(breaks= seq(0,5,0.1))
 
